@@ -1,6 +1,3 @@
-def main():
-    print("Hello from text-summarizer!")
+from src.text_summarizer.logging import logger
 
-
-if __name__ == "__main__":
-    main()
+logger.info("logging is implemented")
