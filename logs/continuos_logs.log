@@ -1,1 +1,6 @@
 [2025-12-09 21:44:48,267: INFO: main: logging is implemented]
+[2025-12-14 21:46:12,039: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-14 21:46:12,186: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-14 21:46:12,274: INFO: common: created directory at: artifacts]
+[2025-12-14 21:46:12,276: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-14 21:46:18,115: INFO: 380177465: File is downloaded]
