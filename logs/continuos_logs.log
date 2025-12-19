@@ -11,3 +11,7 @@
 [2025-12-15 21:37:59,054: INFO: common: created directory at: artifacts/data_ingestion]
 [2025-12-15 21:38:18,969: INFO: data_ingestion: File is downloaded]
 [2025-12-15 21:38:19,181: INFO: main: stage Data Ingestion Stage completed]
+[2025-12-18 21:56:25,099: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-18 21:56:25,302: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-18 21:56:25,384: INFO: common: created directory at: artifacts]
+[2025-12-18 21:56:25,385: INFO: common: created directory at: artifacts/data_transformation]
