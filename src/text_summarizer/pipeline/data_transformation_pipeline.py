@@ -2,7 +2,7 @@ from src.text_summarizer.config.configuration import ConfigurationManager
 from src.text_summarizer.components.data_transformation import DataTransformation
 from src.text_summarizer.logging import logger
 
-class DataValidationTrainingPipeline:
+class DataTransformationTrainingPipeline:
     def __init__(self):
         pass
 
