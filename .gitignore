@@ -10,3 +10,4 @@ wheels/
 .venv
 data_ingestion/
 data_transformation/
+model_trainer/
