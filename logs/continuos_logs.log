@@ -80,3 +80,95 @@
 [2026-01-01 16:31:04,194: INFO: common: yaml file: config\config.yaml loaded successfully]
 [2026-01-01 16:31:06,890: INFO: common: yaml file: params.yaml loaded successfully]
 [2026-01-01 16:31:07,444: INFO: common: created directory at: artifacts]
+[2026-01-01 21:19:33,621: INFO: main: stage Data Ingestion Stage initiated]
+[2026-01-01 21:19:33,673: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-01 21:19:33,741: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-01 21:19:33,766: INFO: common: created directory at: artifacts]
+[2026-01-01 21:19:33,767: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-01-01 21:19:33,829: INFO: data_ingestion: File is already exists]
+[2026-01-01 21:19:34,566: INFO: main: stage Data Ingestion Stage completed]
+[2026-01-01 21:19:34,566: INFO: main: stage Data Transformation Stage initiated]
+[2026-01-01 21:19:34,568: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-01 21:19:34,570: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-01 21:19:34,570: INFO: common: created directory at: artifacts]
+[2026-01-01 21:19:34,571: INFO: common: created directory at: artifacts/data_transformation]
+[2026-01-01 21:19:43,596: INFO: main: stage Data Transformation Stage completed]
+[2026-01-01 21:19:43,596: INFO: main: stage Model Training Stage initiated]
+[2026-01-01 21:19:43,598: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-01 21:19:43,601: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-01 21:19:43,601: INFO: common: created directory at: artifacts]
+[2026-01-01 21:19:43,602: INFO: common: created directory at: artifacts/model_trainer]
+[2026-01-01 21:20:28,094: ERROR: main: TrainingArguments.__init__() got an unexpected keyword argument 'evaluation_strategy']
+Traceback (most recent call last):
+  File "D:\CampusX\Miscellaneous topics\Projects\Text-Summarizer\main.py", line 33, in <module>
+    model_trainer_pipeline.initiate_model_trainer()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\CampusX\Miscellaneous topics\Projects\Text-Summarizer\src\text_summarizer\pipeline\model_trainer_pipeline.py", line 13, in initiate_model_trainer
+    model_trainer.train()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "D:\CampusX\Miscellaneous topics\Projects\Text-Summarizer\src\text_summarizer\components\model_trainer.py", line 22, in train
+    trainer_args = TrainingArguments(
+        output_dir = 'pegasus-samsum', num_train_epochs=1, warmup_steps=500,
+    ...<3 lines>...
+        gradient_accumulation_steps=16
+    )
+TypeError: TrainingArguments.__init__() got an unexpected keyword argument 'evaluation_strategy'
+[2026-01-01 21:29:40,904: INFO: main: stage Data Ingestion Stage initiated]
+[2026-01-01 21:29:40,945: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-01 21:29:41,005: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-01 21:29:41,008: INFO: common: created directory at: artifacts]
+[2026-01-01 21:29:41,009: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-01-01 21:29:41,010: INFO: data_ingestion: File is already exists]
+[2026-01-01 21:29:41,288: INFO: main: stage Data Ingestion Stage completed]
+[2026-01-01 21:29:41,289: INFO: main: stage Data Transformation Stage initiated]
+[2026-01-01 21:29:41,291: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-01 21:29:41,292: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-01 21:29:41,293: INFO: common: created directory at: artifacts]
+[2026-01-01 21:29:41,293: INFO: common: created directory at: artifacts/data_transformation]
+[2026-01-01 21:29:49,407: INFO: main: stage Data Transformation Stage completed]
+[2026-01-01 21:29:49,407: INFO: main: stage Model Training Stage initiated]
+[2026-01-01 21:29:49,409: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-01 21:29:49,412: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-01 21:29:49,413: INFO: common: created directory at: artifacts]
+[2026-01-01 21:29:49,414: INFO: common: created directory at: artifacts/model_trainer]
+[2026-01-01 21:31:58,206: ERROR: main: Using the `Trainer` with `PyTorch` requires `accelerate>=0.26.0`: Please run `pip install transformers[torch]` or `pip install 'accelerate>=0.26.0'`]
+Traceback (most recent call last):
+  File "D:\CampusX\Miscellaneous topics\Projects\Text-Summarizer\main.py", line 33, in <module>
+    model_trainer_pipeline.initiate_model_trainer()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\CampusX\Miscellaneous topics\Projects\Text-Summarizer\src\text_summarizer\pipeline\model_trainer_pipeline.py", line 13, in initiate_model_trainer
+    model_trainer.train()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "D:\CampusX\Miscellaneous topics\Projects\Text-Summarizer\src\text_summarizer\components\model_trainer.py", line 45, in train
+    trainer_args = TrainingArguments(**common_args)
+  File "<string>", line 135, in __init__
+  File "D:\CampusX\Miscellaneous topics\Projects\Text-Summarizer\.venv\Lib\site-packages\transformers\training_args.py", line 1811, in __post_init__
+    self.device
+  File "D:\CampusX\Miscellaneous topics\Projects\Text-Summarizer\.venv\Lib\site-packages\transformers\training_args.py", line 2355, in device
+    return self._setup_devices
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\functools.py", line 1039, in __get__
+    val = self.func(instance)
+  File "D:\CampusX\Miscellaneous topics\Projects\Text-Summarizer\.venv\Lib\site-packages\transformers\training_args.py", line 2225, in _setup_devices
+    raise ImportError(
+    ...<2 lines>...
+    )
+ImportError: Using the `Trainer` with `PyTorch` requires `accelerate>=0.26.0`: Please run `pip install transformers[torch]` or `pip install 'accelerate>=0.26.0'`
+[2026-01-01 21:36:56,948: INFO: main: stage Data Ingestion Stage initiated]
+[2026-01-01 21:36:57,039: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-01 21:36:57,124: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-01 21:36:57,125: INFO: common: created directory at: artifacts]
+[2026-01-01 21:36:57,126: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-01-01 21:36:57,126: INFO: data_ingestion: File is already exists]
+[2026-01-01 21:36:57,377: INFO: main: stage Data Ingestion Stage completed]
+[2026-01-01 21:36:57,377: INFO: main: stage Data Transformation Stage initiated]
+[2026-01-01 21:36:57,379: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-01 21:36:57,380: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-01 21:36:57,381: INFO: common: created directory at: artifacts]
+[2026-01-01 21:36:57,381: INFO: common: created directory at: artifacts/data_transformation]
+[2026-01-01 21:37:03,324: INFO: main: stage Data Transformation Stage completed]
+[2026-01-01 21:37:03,324: INFO: main: stage Model Training Stage initiated]
+[2026-01-01 21:37:03,327: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-01 21:37:03,329: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-01 21:37:03,330: INFO: common: created directory at: artifacts]
+[2026-01-01 21:37:03,330: INFO: common: created directory at: artifacts/model_trainer]

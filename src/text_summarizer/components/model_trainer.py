@@ -19,13 +19,30 @@ class ModelTrainer:
         ## Loading the Data
         dataset_samsum_pt = load_from_disk(self.config.data_path)
         
-        trainer_args = TrainingArguments(
-            output_dir = 'pegasus-samsum', num_train_epochs=1, warmup_steps=500,
-            per_device_train_batch_size=1, per_device_eval_batch_size=1,
-            weight_decay=0.01, logging_steps=10,
-            evaluation_strategy='steps', eval_steps=500, save_steps=1e6,
-            gradient_accumulation_steps=16
+        # Create TrainingArguments with compatibility for different transformers versions
+        import inspect
+
+        common_args = dict(
+            output_dir='pegasus-samsum',
+            num_train_epochs=1,
+            warmup_steps=500,
+            per_device_train_batch_size=1,
+            per_device_eval_batch_size=1,
+            weight_decay=0.01,
+            logging_steps=10,
+            eval_steps=500,
+            save_steps=int(1e6),
+            gradient_accumulation_steps=16,
         )
+
+        sig_params = inspect.signature(TrainingArguments).parameters
+        if 'evaluation_strategy' in sig_params:
+            common_args['evaluation_strategy'] = 'steps'
+        else:
+            # Older transformers versions don't support `evaluation_strategy`; ensure evaluation runs
+            common_args['do_eval'] = True
+
+        trainer_args = TrainingArguments(**common_args)
 
         trainer = Trainer(model=model_pegasus, args=trainer_args,
                   tokenizer=tokenizer, data_collator=seq2seq_data_collator,
